@@ -8,7 +8,7 @@
 
 I learnt how to throw here: https://www.geeksforgeeks.org/how-to-throw-an-exception-in-cpp/
 
-I learnt how to convert seconds to time here https://www.inchcalculator.com/seconds-to-time-calculator/
+I learnt how to convert seconds to time here: https://www.inchcalculator.com/seconds-to-time-calculator/
 
 */
 
