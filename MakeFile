@@ -1,0 +1,5 @@
+all:
+	g++ -Wall TimeCode.cpp -o ex
+run:
+	./ex
+try: all run
