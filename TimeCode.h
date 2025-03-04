@@ -31,7 +31,7 @@ class TimeCode {
             if ((min<0) || (min>=UINT_MAX)){
                 throw invalid_argument("Invalid argument. Please input an integer.");
             }
-            if ((sec<0) || (sec>=UINT_MAX)){
+            if ((sec<0) || (sec>=ULLONG_MAX)){
                 throw invalid_argument("Invalid argument. Please input an integer.");
             }
             t=(3600*hr)+(60*min)+sec; //calculate hours and minutes seconds and add them up
@@ -155,7 +155,7 @@ class TimeCode {
         TimeCode operator-(const TimeCode& other) const{
             // subtracts the t of both TimeCodes
             long long unsigned int total=t-other.t;
-            if (total<0){
+            if (t<other.t){
                 throw invalid_argument("Fatal. Resultant TimeCode is negative.");
             }
             //converts the difference to time, same formula as in GetComponents()
@@ -200,7 +200,7 @@ class TimeCode {
             unsigned int hr=new_t/3600;
             new_t=new_t%3600;
             unsigned int min=new_t/60;
-            unsigned int sec=new_t%60; 
+            unsigned int sec=(new_t%60); 
             //returns the quotient as new TimeCode
             return TimeCode(hr, min, sec);
         }
