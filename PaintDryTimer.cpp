@@ -63,13 +63,11 @@ void tests(){
 	double sa = get_sphere_sa(2.0);
 	assert (50.2654 < sa && sa < 50.2655);
     /* 
- 
- 
- 	note: Since Valgrind is not available on Mac ARM 64 I used this random software called Address Sanitizer, 
 
-	I did:  clang++ -fsanitize=address -g -o paint PaintDryTimer.cpp
+	NEW NOTE: I have used the Ubuntu machines and can now use Valgrind!
 
-	./paint             
+	The Valgrind commands are in the MakeFile, it has told me that I have freed all
+	heap blocks and that no memory leaks are possible!
 	
 	
 	*/
@@ -85,11 +83,11 @@ int main(){
 	string choice; // user input for adding or viewing
 	double radius;
 	cout<<"Enter a radius:";
+	cin>>radius;
 	while (radius<=0){ // prevent negative radii
 		cout << "Radius must be greater than 0:";
 		cin >> radius;
    }
-	cin>>radius;
 	TimeCode tc=TimeCode(0,0,static_cast<unsigned long long int>(get_sphere_sa(radius))); //convert area to TimeCode
 	dss.startTime = time(0); //record starting time
 	dss.timeToDry=&tc; // referencing tc (total time needed) TimeCode to neatly store in dss and therefore batchtimes
